@@ -63,3 +63,13 @@ Files:
     - "%{_datadir}/kservices5/khotkeys.desktop"
     - "%{_datadir}/dbus-1/interfaces/*.xml"
     - "%{_datadir}/doc/HTML/en/kcontrol/khotkeys"
+
+SubPackages:
+    - Name: devel
+      Group: Development/Libraries
+      Summary: Development files for %{name}
+      Description: |
+        The %{name}-devel package contains the files necessary to develop applications
+        that use %{name}.
+      Files:
+          - "%{_libdir}/cmake/KHotKeysDBusInterface"

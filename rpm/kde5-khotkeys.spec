@@ -48,6 +48,16 @@ KHotkeys
 
 
 
+%package devel
+Summary:    Development files for %{name}
+Group:      Development/Libraries
+Requires:   %{name} = %{version}-%{release}
+
+%description devel
+The %{name}-devel package contains the files necessary to develop applications
+that use %{name}.
+
+
 
 %prep
 %setup -q -n %{name}-%{version}/upstream
@@ -78,6 +88,9 @@ rm -rf %{buildroot}
 
 
 
+
+
+
 %files
 %defattr(-,root,root,-)
 %doc COPYING
@@ -91,4 +104,10 @@ rm -rf %{buildroot}
 # >> files
 # << files
 
+
+%files devel
+%defattr(-,root,root,-)
+%{_libdir}/cmake/KHotKeysDBusInterface
+# >> files devel
+# << files devel
 
