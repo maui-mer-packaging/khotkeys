@@ -1,0 +1,65 @@
+Name         : kde5-khotkeys
+Version      : 5.0.0
+Release      : 1
+Group        : System/Base
+License      : GPLv2+
+Summary      : KHotkeys
+Description  : |
+  KHotkeys
+URL          : http://www.kde.org
+SetupOptions : -q -n %{name}-%{version}/upstream
+
+Sources:
+    - "%{name}-%{version}.tar.xz"
+
+RpmLintIgnore:
+    - devel-file-in-non-devel-package
+    - no-changelogname-tag
+    - library-without-ldconfig-postin
+    - library-without-ldconfig-postun
+
+Configure    : none
+Builder      : none
+
+PkgBR:
+    - kde5-rpm-macros
+    - extra-cmake-modules
+    - qt5-tools
+    - kf5-kglobalaccel-devel
+    - kf5-ki18n-devel
+    - kf5-kio-devel
+    - kf5-kxmlgui-devel
+    - kf5-kdelibs4support-devel
+    - kf5-kdbusaddons-devel
+    - kf5-kcmutils-devel
+    - kf5-plasma-devel
+    - kde5-plasma-workspace-devel
+    - libX11-devel
+PkgConfigBR:
+    - Qt5Core
+    - Qt5DBus
+    - Qt5Xml
+    - Qt5Network
+    - Qt5Gui
+    - Qt5Widgets
+    - Qt5Concurrent
+    - Qt5Test
+    - Qt5PrintSupport
+    - Qt5X11Extras
+Requires:
+    - kde5-filesystem
+
+RequiresPost:
+    - /sbin/ldconfig
+RequiresPostUn:
+    - /sbin/ldconfig
+
+Files:
+    - "%doc COPYING"
+    - "%{_kde5_libdir}/libkhotkeysprivate.so.*"
+    - "%{_kde5_plugindir}/*.so"
+    - "%{_kde5_datadir}/khotkeys"
+    - "%{_datadir}/kservices5/kded/*.desktop"
+    - "%{_datadir}/kservices5/khotkeys.desktop"
+    - "%{_datadir}/dbus-1/interfaces/*.xml"
+    - "%{_datadir}/doc/HTML/en/kcontrol/khotkeys"
