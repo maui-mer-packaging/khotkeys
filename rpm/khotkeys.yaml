@@ -1,4 +1,4 @@
-Name         : kde5-khotkeys
+Name         : khotkeys
 Version      : 5.0.0
 Release      : 1
 Group        : System/Base
@@ -22,18 +22,18 @@ Configure    : none
 Builder      : none
 
 PkgBR:
-    - kde5-rpm-macros
+    - kf5-rpm-macros
     - extra-cmake-modules
     - qt5-tools
-    - kf5-kglobalaccel-devel
-    - kf5-ki18n-devel
-    - kf5-kio-devel
-    - kf5-kxmlgui-devel
-    - kf5-kdelibs4support-devel
-    - kf5-kdbusaddons-devel
-    - kf5-kcmutils-devel
-    - kf5-plasma-devel
-    - kde5-plasma-workspace-devel
+    - kglobalaccel-devel
+    - ki18n-devel
+    - kio-devel
+    - kxmlgui-devel
+    - kdelibs4support-devel
+    - kdbusaddons-devel
+    - kcmutils-devel
+    - plasma-devel
+    - plasma-workspace-devel
     - libX11-devel
 PkgConfigBR:
     - Qt5Core
@@ -47,7 +47,7 @@ PkgConfigBR:
     - Qt5PrintSupport
     - Qt5X11Extras
 Requires:
-    - kde5-filesystem
+    - kf5-filesystem
 
 RequiresPost:
     - /sbin/ldconfig
@@ -56,13 +56,12 @@ RequiresPostUn:
 
 Files:
     - "%doc COPYING"
-    - "%{_kde5_libdir}/libkhotkeysprivate.so.*"
-    - "%{_kde5_plugindir}/*.so"
-    - "%{_kde5_datadir}/khotkeys"
-    - "%{_datadir}/kservices5/kded/*.desktop"
-    - "%{_datadir}/kservices5/khotkeys.desktop"
-    - "%{_datadir}/dbus-1/interfaces/*.xml"
-    - "%{_datadir}/doc/HTML/en/kcontrol/khotkeys"
+    - "%{_kf5_libdir}/libkhotkeysprivate.so.*"
+    - "%{_kf5_plugindir}/*"
+    - "%{_kf5_sharedir}/khotkeys"
+    - "%{_kf5_servicesdir}/*"
+    - "%{_kf5_dbusinterfacesdir}/*.xml"
+    - "%{_kf5_htmldir}/en/kcontrol/khotkeys"
 
 SubPackages:
     - Name: devel
@@ -72,4 +71,4 @@ SubPackages:
         The %{name}-devel package contains the files necessary to develop applications
         that use %{name}.
       Files:
-          - "%{_libdir}/cmake/KHotKeysDBusInterface"
+          - "%{_kf5_cmakedir}/KHotKeysDBusInterface"
