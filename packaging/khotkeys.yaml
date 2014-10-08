@@ -7,7 +7,6 @@ Summary      : KHotkeys
 Description  : |
   KHotkeys
 URL          : http://www.kde.org
-SetupOptions : -q -n %{name}-%{version}/upstream
 
 Sources:
     - "%{name}-%{version}.tar.xz"
